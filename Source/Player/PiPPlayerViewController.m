@@ -39,7 +39,7 @@ _Pragma("clang diagnostic pop") \
 
 static CGFloat kDecelerationRate;
 static CGFloat previousScaleProgress = 0.f;
-static PiPPlayerViewControllerPosition previousPosition = PiPPlayerViewControllerPositionTopRight;
+static PiPPlayerViewControllerPosition previousPosition = PiPPlayerViewControllerPositionBottomRight;
 
 #pragma mark - PiPPlayerViewControllerPosition
 
@@ -504,7 +504,7 @@ static PiPPlayerViewControllerPosition PiPPlayerViewControllerPositionVisiblePos
 
 - (void)setPosition:(PiPPlayerViewControllerPosition)position {
     _position = position;
-    previousPosition = PiPPlayerViewControllerPositionVisiblePosition(position);
+    //previousPosition = PiPPlayerViewControllerPositionVisiblePosition(position);
     
     NSMutableArray<NSLayoutConstraint *> *constraintsToActivate = [NSMutableArray array];
     NSMutableArray<NSLayoutConstraint *> *constraintsToDeactivate = [NSMutableArray arrayWithObjects:_topConstraint, _bottomConstraint, _leftConstraint, _rightConstraint, _leftHiddenConstraint, _rightHiddenConstraint, nil];

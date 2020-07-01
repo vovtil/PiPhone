@@ -27,16 +27,19 @@
 }
 
 - (instancetype)init {
-    if (self = [super initWithFrame:UIScreen.mainScreen.bounds]) {
-        self.windowLevel = UIWindowLevelStatusBar;
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.hidden = NO;
-        self.rootViewController = [[PiPRootViewController alloc] init];
-        
-        self.rootViewController.view.frame = self.bounds;
-    }
-    
-    return self;
+    if (@available(iOS 13, *)) {
+           self = [super initWithWindowScene: [[UIApplication sharedApplication] connectedScenes].allObjects.firstObject];
+       } else {
+           self = [super initWithFrame: UIScreen.mainScreen.bounds];
+       }
+       self.windowLevel = UIWindowLevelStatusBar;
+       self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+       self.hidden = NO;
+       self.rootViewController = [[PiPRootViewController alloc] init];
+       
+       self.rootViewController.view.frame = self.bounds;
+       
+       return self;
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {

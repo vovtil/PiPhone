@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PiPhone'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'Picture in picture video playback for iPhone'
 
   s.description      = <<-DESC
@@ -18,7 +18,7 @@ PiPhone is a drop in solution to support picture-in-picture (user-initiated play
 
   s.requires_arc = true
   s.resources = 'Source/*.xcassets'
-  
+
   s.public_header_files = ['Source/PiPhone.h', 'Source/Core/PiPManager.h']
   s.source_files = 'Source/**/*.{h,m}'
 
